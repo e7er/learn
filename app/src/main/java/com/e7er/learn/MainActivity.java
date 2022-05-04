@@ -16,6 +16,7 @@ public class MainActivity extends Activity implements View.OnClickListener, View
     View back, next;
     static List<String> arrShow = new ArrayList<>();
     static int position = 1;
+    static int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +48,17 @@ public class MainActivity extends Activity implements View.OnClickListener, View
                 show(--position);
                 break;
             case R.id.main_next:
+                count++;
                 show(++position);
                 break;
         }
     }
 
     private void show(int pointer) {
+        if (0 != count && 0 == count % 10) {
+            show.setText("good!");
+            return;
+        }
         int p = (pointer + arrShow.size()) % arrShow.size();
         show.setText(arrShow.get(p));
     }
@@ -73,6 +79,7 @@ public class MainActivity extends Activity implements View.OnClickListener, View
      * 切换数组
      */
     private void switchArray() {
+        count = 0;
         String[] chinese = this.getResources().getStringArray(R.array.chinese);
         String[] phonetic = this.getResources().getStringArray(R.array.phonetic);
         if (arrShow.size() == chinese.length) {

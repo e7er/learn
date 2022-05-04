@@ -11,8 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#CCE8CF"
+        android:textColor="@color/black"
         android:gravity="center"
-        android:textSize="180sp"></TextView>
+        android:textSize="280sp"></TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
